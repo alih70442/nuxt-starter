@@ -1,0 +1,140 @@
+.p-btn {
+  @extend %transition-fast;
+
+  height: 40px;
+  display: inline-block;
+  border-radius: 12px;
+  text-align: center;
+  padding-right: 24px;
+  padding-left: 24px;
+
+  &--primary {
+    background: $color-primary;
+    color: white;
+
+    &:hover {
+      background: lighten($color-primary, 10%);
+      color: white;
+    }
+
+    &:active {
+      background: darken($color-primary, 10%);
+    }
+  }
+
+  &--secondary {
+    background: $color-secondary;
+    color: white;
+
+    &:hover {
+      background: lighten($color-secondary, 10%);
+      color: white;
+    }
+
+    &:active {
+      background: darken($color-secondary, 10%);
+    }
+  }
+
+  &--outline-primary {
+    background: transparent;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: white;
+    }
+  }
+
+  &--outline-light {
+    background: transparent;
+    color: white;
+
+    border: 1px solid white;
+
+    &:hover {
+      background: white;
+      color: $color-primary;
+    }
+  }
+
+  &--sm {
+    height: 32px;
+    font-size: 14px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  &--lg {
+    height: 54px;
+    font-size: 18px;
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+
+  &[disabled='true'] {
+    opacity: 0.7;
+  }
+}
+
+.p-loading {
+  position: relative;
+
+  pointer-events: none;
+
+  &::before {
+    @include square(16px);
+    /* @extend %fontIcon; */
+
+    /* content: "\e942"; */
+    content: "";
+
+    position: absolute;
+    left: calc(50% - 8px);
+    top: calc(50% - 8px);
+
+    color: white;
+    z-index: 0;
+
+    animation: rotation 0.8s linear infinite;
+
+    border: rgb(209, 209, 209) 2px solid;
+    border-right: $color-primary 2px solid;
+    border-radius: 50%;
+  }
+
+  &--left {
+    &::before {
+      left: 8px;
+    }
+  }
+
+  &--bgPrimary {
+    &::before {
+      border: rgb(209, 209, 209) 2px solid;
+      border-right: rgb(131, 131, 131) 2px solid;
+    }
+  }
+
+  &--center {
+    color: transparent !important;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+a.p-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

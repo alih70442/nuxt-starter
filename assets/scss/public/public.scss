@@ -1,0 +1,41 @@
+@import "imports";
+
+@tailwind base;
+@tailwind components;
+
+// assets
+@import "assets/reboot";
+@import "assets/typography";
+@import "assets/fontIcon";
+@import "assets/overides";
+@import "assets/helpers";
+
+@import "assets/layouts";
+
+// components
+@import "../components/scroll_appearance";
+@import "../components/carousel";
+@import "../components/sprites";
+@import "../components/tooltip";
+@import "../components/sectionRoad";
+@import "../components/select";
+@import "../components/buttons";
+@import "../components/inputs";
+@import "../components/toast";
+@import "../components/table";
+@import "../components/placeholder";
+// @import "../components/checkbox";
+// @import "../components/radio";
+// @import "../components/switch";
+// @import "../components/breadcrumb";
+// @import "../components/loader";
+
+// templates
+@import "templates/header";
+@import 'templates/footer';
+@import 'templates/scrollTop';
+@import 'templates/contact';
+
+@import '../components/animations';
+
+@tailwind utilities;

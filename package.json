@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.2.0",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "nuxt": "3.0.0",
+    "nuxt-simple-robots": "^1.0.2"
+  },
+  "dependencies": {
+    "@funken-studio/sitemap-nuxt-3": "^4.0.4",
+    "@pinia/nuxt": "^0.4.6",
+    "@splidejs/splide": "^4.1.4",
+    "axios": "^1.2.1",
+    "lodash": "^4.17.21",
+    "num2persian": "^3.2.2",
+    "nuxt-icons": "^3.1.0",
+    "pinia": "^2.0.28",
+    "qs": "^6.11.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "vee-validate": "^4.7.3",
+    "vue": "^3.2.45"
+  }
+}

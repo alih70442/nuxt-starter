@@ -1,0 +1,145 @@
+.c-select {
+  $parent: #{&};
+
+  position: relative;
+  user-select: none;
+
+  @at-root #{$parent}__toggler {
+    position: relative;
+    min-width: 170px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+    //color: rgb(229, 231, 235);
+    border-radius: 12px;
+    padding: 0 16px;
+
+    &::after {
+      @extend %transition-fast;
+      @extend %fontIcon;
+
+      content: "\e905";
+
+      position: absolute;
+      left: 12px;
+      top: calc(50% - 8px);
+
+      display: inline-block;
+      color: gray;
+
+      font-size: 14px;
+      transform: scaleY(-1);
+    }
+
+    @at-root #{$parent}__label {
+      color: $font-light-passive;
+    }
+
+    &.show {
+      border-color: $color-primary;
+
+      &::after {
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  @at-root #{$parent}__menu {
+    position: absolute;
+    right: 0;
+
+    width: 100%;
+    min-width: 170px;
+
+    background: #ffffff;
+    border-radius: 12px;
+    z-index: 1003;
+    padding-bottom: 8px;
+    margin-top: 8px;
+    border: 1px solid #d3d3d3;
+
+    //animation-name: fadeIn;
+    //animation-duration: 400ms;
+    box-shadow: 0 0 8px rgba(black, 0.1);
+
+    display: none;
+
+    @at-root #{$parent}__items {
+      max-height: 212px;
+
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+      }
+
+      @at-root #{$parent}__item {
+        @extend %transition-fast;
+
+        border-radius: 12px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        padding: 8px 12px;
+
+        &:hover {
+          background: #fafafa;
+        }
+
+        &.disabled {
+          pointer-events: none;
+          color: rgb(229, 231, 235);
+        }
+
+        &.focused {
+          border-color: rgba($color-primary, 0.6);
+        }
+
+        &.selected {
+          background: $color-primary;
+          color: white;
+        }
+      }
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+
+  @at-root #{$parent}__search {
+    width: calc(100% - 16px);
+    height: 40px;
+
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 12px;
+    outline: 0;
+    padding: 0 16px;
+    margin: 8px;
+
+    &::placeholder {
+      color: rgb(229, 231, 235);
+    }
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  &--primary {
+    #{$parent}__toggler {
+      background: #fafafa;
+    }
+  }
+
+  &.selected {
+    #{$parent}__label {
+      color: #333;
+    }
+  }
+}

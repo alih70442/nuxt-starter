@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Shabnam';
+  src: url('~/assets/fonts/Shabnam-FD.woff2') format('woff2'),
+  url('~/assets/fonts/Shabnam-FD.woff') format('woff'),
+  url('~/assets/fonts/Shabnam-FD.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  // solved a lighthouse issue
+  font-display: swap;
+}
+
+// @font-face {
+//     font-family: "Shabnam";
+//     src: url($path-fonts + "Shabnam-Bold-FD.woff2") format("woff2"),
+//         url($path-fonts + "Shabnam-Bold-FD.woff") format("woff"), url($path-fonts + "Shabnam-Bold-FD.ttf") format("ttf");
+//     font-weight: bold;
+//     font-style: normal;
+//     // solved a lighthouse issue
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Shabnam';
+//     src: url($path-fonts + 'Shabnam-Light-FD.woff2') format('woff2'),
+//         url($path-fonts + 'Shabnam-Light-FD.woff') format('woff'),
+//         url($path-fonts + 'Shabnam-Light-FD.ttf') format('ttf');
+//     font-weight: lighter;
+//     font-style: normal;
+//     // solved a lighthouse issue
+//     font-display: swap;
+// }
+
+.t-title-secondary {
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.t-title-tertiary {
+  color: #333333;
+  font-size: 20px;
+  font-weight: bold;
+}

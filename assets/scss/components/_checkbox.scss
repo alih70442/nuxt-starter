@@ -1,0 +1,105 @@
+.c-checkbox {
+    $parent: #{&};
+
+    position: relative;
+    user-select: none;
+
+    @at-root #{$parent}__input {
+        display: none;
+
+        &:checked {
+            & ~ #{$parent}__label {
+                &::before {
+                    background-size: 90%;
+                    background-color: $color-primary;
+                    border-color: $color-primary;
+                }
+            }
+        }
+
+        &:disabled {
+            & ~ #{$parent}__label {
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    @at-root #{$parent}__label {
+        @extend %transition-normal;
+
+        display: inline-flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        user-select: none;
+        margin-bottom: 0;
+
+        &::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 21px;
+            min-width: 21px;
+            height: 21px;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            vertical-align: middle;
+            border: 1px solid #dcdcdc;
+            background-color: transparent;
+            border-radius: 2px;
+            transition: all 0.2s ease 0s;
+
+            background-image: url($path-images + "core/check.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 0;
+        }
+    }
+
+    // &--bordered {
+    //     #{$parent}__label {
+    //         border: #e0e0e0 1px solid;
+    //         border-radius: 6px;
+    //         padding: 10px 16px;
+    //         margin-bottom: 0;
+    //     }
+
+    //     #{$parent}__input {
+    //         &:checked {
+    //             & ~ #{$parent}__label {
+    //                 border-color: $color-primary;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // &--lg {
+    //     #{$parent}__label {
+    //         &::before {
+    //             width: 21px;
+    //             height: 21px;
+    //         }
+    //     }
+    // }
+
+    // @at-root #{&}--bg#{&}--bordered {
+    //     #{$parent}__label {
+    //         background-color: $color-primary-lighter;
+    //         border-color: transparent;
+    //     }
+
+    //     #{$parent}__input {
+    //         &:checked {
+    //             & ~ #{$parent}__label {
+    //                 background: $color-primary-light;
+    //                 color: $color-primary;
+    //                 border-color: $color-primary;
+    //             }
+    //         }
+    //     }
+    // }
+}

@@ -1,0 +1,12 @@
+.t-footer {
+  $parent: #{&};
+
+  @at-root #{$parent}__ {
+  }
+}
+
+//.body--bottomFloat {
+//  .t-footer__container {
+//    padding-bottom: 100px;
+//  }
+//}

@@ -1,0 +1,44 @@
+// +++++++++++++++
+// global vars +++
+
+$is_production: true;
+$project_version: 2;
+
+$rem: 16px;
+
+$media-xs: 480px;
+$media-sm: 640px;
+$media-md: 768px;
+$media-lg: 1024px;
+$media-xl: 1330px;
+$media-xxl: 1640px;
+
+$media-phone: $media-lg;
+
+// colors
+$color-primary: #ff5128;
+$color-secondary: #1c212d;
+$color-tertiary: #f5bcf4;
+$color-dark: #333333;
+$color-light: #ffffff;
+
+$font-dark: #333333;
+$font-dark-passive: #5b5b5b;
+$font-light: #ffffff;
+$font-light-passive: #acacac;
+
+$color-danger: #d40000;
+$color-warning: #d09800;
+$color-success: #4aae20;
+
+// global vars +++
+// +++++++++++++++
+
+// addressess
+$path-images: "../../images/";
+$path-fonts: "../../fonts/";
+
+@if ($is_production) {
+    $path-images: "../images/";
+    $path-fonts: "../fonts/";
+}

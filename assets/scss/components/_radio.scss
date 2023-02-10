@@ -1,0 +1,103 @@
+.c-radio {
+    $parent: #{&};
+
+    position: relative;
+    user-select: none;
+    display: inline-block;
+
+    @at-root #{$parent}__input {
+        display: none;
+
+        &:checked {
+            & ~ #{$parent}__label {
+                &::before {
+                    border-width: 4px;
+                    border-color: $color-primary;
+                }
+            }
+        }
+
+        &:disabled {
+            & ~ #{$parent}__label {
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    @at-root #{$parent}__label {
+        @extend %transition-fast;
+
+        // display: inline-flex;
+
+        position: relative;
+
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 0;
+
+        &::before {
+            @extend %transition-fast;
+
+            content: "";
+
+            width: 16px;
+            min-width: 16px;
+            height: 16px;
+
+            display: inline-block;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            vertical-align: middle;
+            border: 1px solid $color-primary;
+            border-radius: 50%;
+
+            // background-image: url($path-images-core + "radio.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 0;
+            margin-left: 4px;
+        }
+    }
+
+    &--bordered {
+        #{$parent}__label {
+            border: 1px solid rgb(229, 231, 235);
+        }
+
+        #{$parent}__input {
+            &:checked {
+                & ~ #{$parent}__label {
+                    border-color: $color-primary;
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    &--inputHidden {
+        #{$parent}__label {
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    // @at-root #{&}--bg#{&}--bordered {
+    //     #{$parent}__label {
+    //         background: $color-secondary-lighter;
+    //         border-color: transparent;
+    //     }
+
+    //     #{$parent}__input {
+    //         &:checked {
+    //             & ~ #{$parent}__label {
+    //                 background: $color-secondary-light;
+    //                 color: $color-secondary;
+    //                 border-color: $color-secondary;
+    //             }
+    //         }
+    //     }
+    // }
+}

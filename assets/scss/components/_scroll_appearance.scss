@@ -1,0 +1,25 @@
+$scroll_color: rgb(185, 185, 185);
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $scroll_color;
+
+    &:hover {
+        background: darken($color: $scroll_color, $amount: 5%);
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: lighten($color: $scroll_color, $amount: 17%);
+}
+
+.scroll--thin {
+    &::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+    }
+}

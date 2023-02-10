@@ -1,0 +1,70 @@
+.c-switch {
+    $parent: #{&};
+
+    height: 22px;
+    position: relative;
+    user-select: none;
+
+    @at-root #{$parent}__input {
+        display: none;
+
+        &:checked {
+            & ~ #{$parent}__label {
+                border-color: $color-primary;
+                &::before {
+                    background: $color-primary;
+                    left: 23px;
+                }
+            }
+        }
+
+        &:disabled {
+            & ~ #{$parent}__label {
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    @at-root #{$parent}__label {
+        @extend %transition-normal;
+
+        width: 42px;
+        height: 22px;
+
+        display: inline-flex;
+        align-items: center;
+
+        border: 1px solid #8f8f8f;
+        border-radius: 50rem;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 0;
+
+        &::before {
+            content: "";
+
+            position: absolute;
+            top: 4px;
+            left: 5px;
+
+            display: inline-block;
+
+            width: 14px;
+            min-width: 14px;
+            height: 14px;
+
+            background: #8f8f8f;
+            border-radius: 50%;
+            transition: all 0.2s ease 0s;
+
+            // background-image: url($path-images + "core/check.svg");
+            // background-position: center;
+            // background-repeat: no-repeat;
+            // background-size: 0;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+}
