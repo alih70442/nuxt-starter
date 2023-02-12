@@ -15,9 +15,7 @@
 // components
 @import "../components/scroll_appearance";
 @import "../components/carousel";
-@import "../components/sprites";
 @import "../components/tooltip";
-@import "../components/sectionRoad";
 @import "../components/select";
 @import "../components/buttons";
 @import "../components/inputs";
@@ -32,10 +30,8 @@
 
 // templates
 @import "templates/header";
-@import 'templates/footer';
-@import 'templates/scrollTop';
-@import 'templates/contact';
+@import "templates/footer";
 
-@import '../components/animations';
+@import "../components/animations";
 
 @tailwind utilities;

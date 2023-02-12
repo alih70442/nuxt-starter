@@ -1,6 +1,10 @@
 <template>
   <div class="t-toasts">
-    <transition-group name="anim-toast" tag="div" class="flex flex-col items-start">
+    <transition-group
+      name="anim-toast"
+      tag="div"
+      class="flex flex-col items-start"
+    >
       <base-toast
         v-for="toast in toasts_list"
         :key="toast.id"
@@ -14,7 +18,7 @@
 
 <script setup>
 import BaseToast from "~/components/layouts/BaseToast";
-import useToastsStore from "~/stores/StoreToasts";
+import useToastsStore from "~/store/StoreToasts";
 
 const toasts_list = computed(() => {
   return useToastsStore().toasts_list;
@@ -22,7 +26,6 @@ const toasts_list = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-
 .t-toasts {
   $parent: #{&};
 
@@ -40,5 +43,4 @@ const toasts_list = computed(() => {
   @at-root #{$parent}__arrows {
   }
 }
-
 </style>

@@ -11,6 +11,11 @@ const useToastsStore = defineStore({
       // }
     ],
   }),
+  getters: {
+    toasts_list(state) {
+      return state.list;
+    },
+  },
   actions: {
     create(data) {
       this.id++;

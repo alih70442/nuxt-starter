@@ -1,5 +1,4 @@
 <template>
-
   <transition name="anim-fade">
     <div
       class="c-modal inset-0 js-modal"
@@ -12,9 +11,7 @@
       @keyup.esc="hide_through_disabler"
       ref="ref_modal"
     >
-      <div
-        class="flex items-center justify-center px-sm-2"
-      >
+      <div class="flex items-center justify-center px-sm-2">
         <div
           class="c-modal__disabler inset-0 js-modal__disabler"
           @mouseup="hide_through_disabler"
@@ -34,7 +31,6 @@
 
           <slot name="body"></slot>
           <slot></slot>
-
         </div>
       </div>
     </div>
@@ -42,10 +38,10 @@
 </template>
 
 <script>
-import {computed, onBeforeMount, onMounted, onUnmounted, ref} from "vue";
-import get_unique_id from "../../assets/js/functions/get_unique_id";
-import empty from "assets/js/functions/empty";
-import {useAppStore} from "/store/StoreApp";
+import { computed, onBeforeMount, onMounted, onUnmounted, ref } from "vue";
+import get_unique_id from "~/assets/js/functions/get_unique_id";
+import empty from "~/assets/js/functions/empty";
+import { useAppStore } from "~/store/StoreApp";
 
 export default {
   props: {
@@ -71,11 +67,10 @@ export default {
     },
     onHide: {
       type: Function,
-      default: () => {
-      },
+      default: () => {},
     },
   },
-  setup(props, {emit}){
+  setup(props, { emit }) {
     const id = ref(props.id);
     const ref_modal = ref(null);
     const visibility = ref(false);
@@ -112,7 +107,7 @@ export default {
         hide();
       }
     };
-    const hide_through_esc = ($event) => {
+    const hide_through_esc = $event => {
       if ($event.keyCode === 27 && props.can_close) {
         hide();
       }
@@ -174,7 +169,6 @@ export default {
   overflow-y: auto;
   z-index: 60;
 
-
   @at-root #{$parent}__disabler {
     @extend %transition-normal;
 
@@ -198,7 +192,7 @@ export default {
 
     padding: 24px 16px;
     // overflow: hidden;
-    @include media($media-sm) {;
+    @include media($media-sm) {
       border-radius: 12px;
 
       padding: 24px 24px;

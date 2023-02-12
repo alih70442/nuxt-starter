@@ -15,5 +15,15 @@ export const useAppStore = defineStore({
     async create_confirm(options) {
       return this.ref_confirm.create(options);
     },
+    increment_modals_count() {
+      this.modals_count++;
+      if (this.modals_count > 0)
+        document.body.style.overflow = "hidden";
+    },
+    decrement_modals_count() {
+      this.modals_count--;
+      if (this.modals_count <= 0)
+        document.body.style.overflow = "auto";
+    },
   },
 });
