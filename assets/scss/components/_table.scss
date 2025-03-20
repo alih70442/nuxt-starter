@@ -1,0 +1,19 @@
+.table {
+  background: white;
+
+  td,
+  th {
+    border: #f4f4f4 solid 1px;
+    padding: 8px;
+  }
+}
+
+.table--striped {
+  tbody {
+    tr {
+      &:nth-of-type(2n) {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@use "sass:math";
+
+$ph-direction: rtl !default;
+$ph-bg: #f5f5f5 !default;
+$ph-color: #ced4da !default;
+$ph-border: 1px solid transparent !default;
+$ph-border-radius: 2px !default;
+
+$ph-cols: 12 !default;
+$ph-cols-remove-odd: true !default;
+$ph-gutter: 0 !default;
+$ph-spacer: 15px !default;
+
+$ph-avatar-border-radius: 50% !default;
+
+$ph-animation-duration: 0.8s !default;
+
+
+.ph-item {
+
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  margin-bottom: $ph-gutter;
+  padding: $ph-gutter ($ph-gutter * 0.5) $ph-gutter ($ph-gutter * 0.5);
+  overflow: hidden;
+  direction: $ph-direction;
+  background-color: $ph-bg;
+  border: $ph-border;
+  border-radius: $ph-border-radius;
+  z-index: 0;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    width: 500%;
+    margin-right: -250%;
+    background: linear-gradient(to right, rgba($ph-bg, 0) 46%, rgba($ph-bg, 0.35) 50%, rgba($ph-bg, 0) 54%) 50% 50%;
+    animation: phAnimation $ph-animation-duration linear infinite;
+    content: " ";
+    pointer-events: none;
+  }
+
+  > * {
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+    margin-bottom: $ph-spacer;
+    padding-right: ($ph-gutter * 0.5);
+    padding-left: ($ph-gutter * 0.5);
+  }
+}
+
+.ph-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.625rem;
+  margin-right: -0.625rem;
+  //margin-top: -($ph-spacer * 0.5);
+
+  .ph-item {
+    height: 10px;
+    //margin-top: ($ph-spacer * 0.5);
+    background-color: $ph-color;
+  }
+
+  .big,
+  &.big .ph-item {
+    height: 20px;
+  }
+
+  .empty {
+    background-color: rgba($ph-bg, 0);
+  }
+}
+
+//@mixin ph-make-col($size, $columns) {
+//  .ph-col-#{$size} {
+//    flex: 0 0 percentage(math.div($size, $columns));
+//  }
+//}
+
+//@for $i from 1 through $ph-cols {
+//  @if $ph-cols-remove-odd and $i % 2 == 0 {
+//    @include ph-make-col($i, $ph-cols);
+//  } @else if not $ph-cols-remove-odd {
+//    @include ph-make-col($i, $ph-cols);
+//  }
+//}
+
+[class*="ph-col"] {
+  direction: $ph-direction;
+
+  > * {
+    + .ph-row {
+      margin-top: 0;
+    }
+
+    + * {
+      margin-top: ($ph-spacer * 0.5);
+    }
+  }
+}
+
+.ph-avatar {
+  position: relative;
+  width: 100%;
+  min-width: 60px;
+  overflow: hidden;
+  background-color: $ph-color;
+  border-radius: $ph-avatar-border-radius;
+
+  &::before {
+    display: block;
+    padding-top: 100%;
+    content: " ";
+  }
+}
+
+.ph-picture {
+  width: 100%;
+  height: 120px;
+  background-color: $ph-color;
+}
+
+@keyframes phAnimation {
+  0% {
+    transform: translate3d(-30%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(30%, 0, 0);
+  }
+}
+
+$ph-bg: #263238;
+$ph-color: #3d4e57;
+
+.ph-item--dark {
+  background-color: $ph-bg;
+
+  &::before {
+    background: linear-gradient(to right, rgba($ph-bg, 0) 46%, rgba($ph-bg, 0.35) 50%, rgba($ph-bg, 0) 54%) 50% 50%;
+  }
+
+  .ph-row {
+    .ph-item {
+      background-color: $ph-color;
+    }
+
+    .empty {
+      background-color: rgba($ph-bg, 0);
+    }
+  }
+}

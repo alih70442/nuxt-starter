@@ -1,0 +1,116 @@
+.c-tooltip {
+  $parent: #{&};
+
+  position: relative;
+  user-select: none;
+
+  &:hover {
+    & > #{$parent}__tip {
+      display: block;
+    }
+  }
+
+  @at-root #{$parent}__tip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    display: none;
+
+    min-width: 60px;
+
+    background: rgba(black, 0.9);
+    color: white;
+    border-radius: 6px;
+    padding: 6px 8px;
+    z-index: 20;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    white-space: nowrap;
+
+    will-change: transform, opacity;
+    animation-name: tooltipFadeIn;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+
+    /* &::before {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        transform: translateX(-50%) translateY(50%);
+
+        width: 9px;
+        height: 9px;
+
+        background: rgba(black, 0.9);
+
+        z-index: -1;
+
+        transform: rotate(45deg);
+        box-shadow: 0 0 22px rgba(0, 0, 0, 0.15);
+    } */
+    @keyframes tooltipFadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-70%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-100%);
+      }
+    }
+
+    @keyframes tooltipFadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(130%) translateY(-50%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(100%) translateY(-50%);
+      }
+    }
+
+    @keyframes tooltipFadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-130%) translateY(-50%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-100%) translateY(-50%);
+      }
+    }
+  }
+
+  &.bottom {
+    #{$parent}__tip {
+      top: initial;
+      bottom: -75px;
+    }
+  }
+
+  &.right {
+    #{$parent}__tip {
+      top: 50%;
+      left: initial;
+      right: 0;
+
+      will-change: transform, opacity;
+      animation-name: tooltipFadeInRight;
+    }
+  }
+
+  &.left {
+    #{$parent}__tip {
+      top: 50%;
+      left: 0;
+
+      will-change: transform, opacity;
+      animation-name: tooltipFadeInLeft;
+    }
+  }
+}

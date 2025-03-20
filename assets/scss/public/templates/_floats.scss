@@ -1,0 +1,42 @@
+.c-floats {
+  $parent: #{&};
+
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 5;
+
+  transition: 0.2s bottom;
+
+  @include media($media-md) {
+    right: 23px;
+    bottom: 31px;
+  }
+
+  // class for reaching last of page
+  @at-root #{$parent}--last {
+    bottom: 120px;
+
+    @include media(500px) {
+      bottom: 80px;
+    }
+  }
+}
+
+body.body--bottomFloat {
+  .c-floats {
+    bottom: 100px;
+
+    @include media(500px) {
+      bottom: 80px;
+    }
+
+    &.c-floats--last {
+      bottom: 200px;
+
+      @include media(500px) {
+        bottom: 160px;
+      }
+    }
+  }
+}

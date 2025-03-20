@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  taminify_landings:
+    container_name: taminify_landings
+    restart: unless-stopped
+    build:
+      context: .
+    ports:
+      - '3000:3000'

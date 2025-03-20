@@ -1,0 +1,190 @@
+.c-input {
+  $parent: #{&};
+
+  @at-root #{$parent}__label {
+    font-size: ptr(14px);
+    color: $color-neutral-700;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-bottom: 4px;
+
+    @at-root #{$parent}__labelIcon {
+      color: $color-neutral-400;
+      font-size: ptr(24px);
+      margin-left: 4px;
+    }
+  }
+
+  @at-root #{$parent}__input {
+    @extend %transition-fast;
+
+    width: 100%;
+    height: $height-md;
+
+    font-size: ptr(14px);
+    font-weight: 500;
+
+    background: white;
+    border-radius: 12px;
+    border: 1.25px solid $color-neutral-300;
+    outline: none;
+    padding: 0 12px;
+
+    &:focus {
+      border-color: $color-primary-800 !important;
+      background: white !important;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-neutral-400;
+    }
+
+    &[disabled] {
+      background: $color-neutral-100 !important;
+      color: $color-neutral-400 !important;
+    }
+  }
+
+  @at-root #{$parent}__icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
+    color: $color-neutral-400;
+    font-size: ptr(20px);
+    z-index: 1;
+  }
+
+  @at-root #{$parent}__close {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+
+    color: $color-neutral-300;
+    z-index: 1;
+
+    & > .nuxt-icon {
+      font-size: ptr(20px);
+    }
+  }
+
+  @at-root #{$parent}__required {
+    font-size: ptr(12px);
+    color: $color-danger;
+  }
+
+  @at-root #{$parent}__helpText {
+    font-size: ptr(12px);
+    color: $color-neutral-700;
+    margin-top: 8px;
+    margin-right: 8px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  @at-root #{$parent}__errorText {
+    font-size: ptr(12px);
+    color: $color-danger;
+    margin-top: 8px;
+    margin-right: 8px;
+
+    will-change: opacity, max-height;
+    animation-name: anim-form-error-appear;
+    animation-duration: 0.4s;
+
+    &:empty {
+      display: none;
+    }
+
+    @at-root #{$parent}__errorIcon {
+      margin-left: 4px;
+      font-size: ptr(16px);
+    }
+  }
+
+  &--xs {
+    #{$parent}__input {
+      height: 32px;
+    }
+
+    #{$parent}__icon {
+      font-size: ptr(16px);
+    }
+
+    #{$parent}__close {
+      & > .nuxt-icon {
+        font-size: ptr(16px);
+      }
+    }
+  }
+
+  &--sm {
+    #{$parent}__input {
+      height: 40px;
+
+      border-radius: $radius-sm;
+    }
+
+    #{$parent}__icon {
+      font-size: ptr(16px);
+    }
+
+    #{$parent}__close {
+      & > .nuxt-icon {
+        font-size: ptr(16px);
+      }
+    }
+  }
+
+  &--lg {
+    #{$parent}__input {
+      height: 56px;
+    }
+
+    #{$parent}__icon {
+      font-size: ptr(24px);
+    }
+
+    #{$parent}__close {
+      & > .nuxt-icon {
+        font-size: ptr(24px);
+      }
+    }
+  }
+
+  &--disabled {
+    #{$parent}__input {
+      background: $color-neutral-100 !important;
+      color: $color-neutral-400 !important;
+    }
+  }
+
+  &--hasError {
+    #{$parent}__input {
+      border: 1.25px solid $color-danger !important;
+    }
+  }
+
+  &--valued {
+    #{$parent}__input {
+      background: white;
+      border-color: $color-neutral-300;
+    }
+  }
+}
+
+@keyframes anim-form-error-appear {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+  100% {
+    max-height: 20px;
+    opacity: 1;
+  }
+}

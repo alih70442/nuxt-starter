@@ -1,0 +1,9 @@
+@import "../public/imports";
+
+@import '../components/owlCarousel';
+@import '../templates/carComments';
+@import '../templates/process';
+
+.t-campaign__bg {
+    background-image: url('assets/images/pages/home/campaign-bg-illustoration.svg');
+}

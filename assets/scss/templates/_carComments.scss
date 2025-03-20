@@ -1,0 +1,33 @@
+.t-carComments {
+    $parent: #{&};
+
+    @at-root #{$parent}__text {
+        &::before {
+            @include square(16px, false, 4px);
+
+            content: '';
+
+            position: absolute;
+            right: 80px;
+            bottom: -8px;
+
+            display: block;
+
+            border: 1px solid #dfdfdf;
+            background: white;
+            z-index: -1;
+
+            transform: rotate(45deg);
+        }
+    }
+
+    // .splide__slide {
+    //     transition: transform 0.4s;
+
+    //     transform: scale(0.8);
+    // }
+
+    // .is-active {
+    //     transform: scale(1);
+    // }
+}

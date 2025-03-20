@@ -1,0 +1,44 @@
+.alert {
+  $parent: #{&};
+
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: ptr(12px);
+  font-size: ptr(14px);
+
+  &-success {
+    color: #0a3622;
+    background-color: #d1e7dd;
+    border-color: #a3cfbb;
+  }
+
+  &-danger {
+    color: #58151c;
+    background-color: #f8d7da;
+    border-color: #f1aeb5;
+  }
+
+  &-warning {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffe69c;
+  }
+
+  &-info {
+    color: #052c65;
+    background-color: #cfe2ff;
+    border-color: #9ec5fe;
+  }
+
+  @at-root #{$parent}__close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+
+  &--closable {
+    padding-left: 40px;
+  }
+}

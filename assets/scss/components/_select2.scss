@@ -1,0 +1,60 @@
+.select2-container {
+    width: 100% !important;
+    height: 48px;
+
+    .selection {
+        display: block;
+        height: 100%;
+    }
+
+    .select2-selection {
+        height: 100%;
+
+        border: rgb(229, 231, 235) solid 1px;
+        border-radius: 0.75rem;
+
+        .select2-selection__arrow {
+            @extend %centering;
+
+            width: 30px;
+            height: 100%;
+
+            & > b {
+                border: none;
+            }
+
+            &::before {
+                @extend %transition-normal;
+                @extend %fontIcon;
+                content: "\e905";
+
+                display: inline-block;
+
+                transform: scaleY(-1);
+                font-size: 12px;
+                color: rgb(145, 145, 145);
+            }
+        }
+
+        .select2-selection__rendered {
+            display: flex;
+            align-items: center;
+
+            height: 100%;
+
+            padding-left: 30px !important;
+            padding-right: 1rem !important;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: rgb(75, 85, 99);
+        }
+    }
+
+    &.select2-container--open {
+        .select2-selection__arrow {
+            &::before {
+                transform: scaleY(1) !important;
+            }
+        }
+    }
+}

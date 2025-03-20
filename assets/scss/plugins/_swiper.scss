@@ -1,0 +1,13 @@
+.swiper {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $color-primary;
+  }
+
+  .swiper-pagination {
+    .swiper-pagination-bullet-active {
+      background: $color-primary;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.splide {
+  .splide__arrows {
+    .splide__arrow {
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% - 18px);
+      left: -25px;
+      color: #5e53c2;
+      outline: none;
+      box-shadow: 0 2px 5px gainsboro;
+      width: 36px;
+      height: 36px;
+
+      & > svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      @include media($media-sm) {
+        width: 50px;
+        height: 50px;
+        top: calc(50% - 25px);
+
+        & > svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &.splide__arrow--prev {
+        left: initial;
+        right: 8px;
+      }
+
+      &.splide__arrow--next {
+        right: initial;
+        left: 8px;
+      }
+    }
+  }
+
+  &--visible {
+    .splide__track {
+      overflow: visible;
+      padding-bottom: 60px;
+    }
+  }
+}

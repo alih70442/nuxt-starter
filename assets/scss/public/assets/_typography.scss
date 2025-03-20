@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Estedad';
+  src: url('~/assets/fonts/Estedad-FD-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  // solved a lighthouse issue
+  font-display: swap;
+}
+
+.text-title {
+  font-weight: bold;
+  line-height: 1.8;
+
+  &--primary {
+    font-size: 22px;
+
+    @include media($media-sm) {
+      font-size: 28px;
+    }
+  }
+
+  &--secondary {
+    font-size: 18px;
+
+    @include media($media-sm) {
+      font-size: 24px;
+    }
+  }
+}

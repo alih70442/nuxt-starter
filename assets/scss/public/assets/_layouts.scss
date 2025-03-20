@@ -1,0 +1,30 @@
+.body--bottomFloat {
+}
+
+.body--cart {
+
+  @include mediaMax($media-md) {
+    padding-bottom: 72px;
+  }
+}
+
+.body--product {
+
+  @include mediaMax($media-lg) {
+    padding-bottom: 64px;
+  }
+}
+
+.l-container {
+  background: white;
+  border: 1px solid #efefef;
+
+  padding: 16px 16px;
+  margin: 0 -16px;
+
+  @include media($media-xs) {
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin: 0 0;
+  }
+}

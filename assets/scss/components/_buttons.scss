@@ -1,0 +1,424 @@
+.p-btn {
+  @extend %transition-fast;
+
+  height: $height-md;
+  display: inline-block;
+  border-radius: 12px;
+  text-align: center;
+  padding-right: 24px;
+  padding-left: 24px;
+
+  &--primary {
+    background: $color-primary;
+    color: white;
+
+    &:hover {
+      background: lighten($color-primary, 10%);
+      color: white;
+    }
+
+    &:active {
+      background: darken($color-primary, 10%);
+    }
+  }
+
+  &--secondary {
+    background: $color-secondary;
+    color: white;
+
+    &:hover {
+      background: lighten($color-secondary, 10%);
+      color: white;
+    }
+
+    &:active {
+      background: darken($color-secondary, 10%);
+    }
+  }
+
+  &--outline-primary {
+    background: transparent;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: white;
+    }
+  }
+
+  &--outline-secondary {
+    background: transparent;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+
+    &:hover {
+      background: $color-secondary;
+      color: white;
+    }
+  }
+
+  &--outline-light {
+    background: transparent;
+    color: white;
+
+    border: 1px solid white;
+
+    &:hover {
+      background: white;
+      color: $color-primary;
+    }
+  }
+
+  &--sm {
+    height: $height-sm;
+    font-size: 14px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  &--lg {
+    height: $height-lg;
+    font-size: 18px;
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+  }
+}
+
+.p-loading {
+  position: relative;
+
+  pointer-events: none;
+
+  &::before {
+    @include square(16px);
+    /* @extend %fontIcon; */
+
+    /* content: "\e942"; */
+    content: "";
+
+    position: absolute;
+    left: calc(50% - 8px);
+    top: calc(50% - 8px);
+
+    color: white;
+    z-index: 0;
+
+    animation: rotation 0.8s linear infinite;
+
+    border: rgb(209, 209, 209) 2px solid;
+    border-right: $color-primary 2px solid;
+    border-radius: 50%;
+  }
+
+  &--left {
+    &::before {
+      left: 8px;
+    }
+  }
+
+  &--bgPrimary {
+    &::before {
+      border: rgb(209, 209, 209) 2px solid;
+      border-right: rgb(131, 131, 131) 2px solid;
+    }
+  }
+
+  &--center {
+    color: transparent !important;
+  }
+
+  &--lg {
+    &::before {
+      @include square(32px);
+
+      border-width: 4px;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+a.p-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-btn {
+  $parent: #{&};
+
+  position: relative;
+  display: inline-block;
+  height: $height-md;
+
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: $radius-md;
+  transition: 0.4s border-color, 0.4s background-color, 0.4s color, 0.4s box-shadow;
+  user-select: none;
+  white-space: nowrap;
+  padding: 0 16px;
+  outline: none;
+  border: none;
+
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+  }
+
+  @at-root #{$parent}__icon {
+    font-size: 20px;
+    margin-left: 2px;
+  }
+
+  @at-root a#{$parent} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .disabled,
+  &[disabled] {
+    pointer-events: none;
+  }
+
+  @at-root #{&}#{&}--primary {
+    color: white;
+    background: $color-primary;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-primary, 8%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-primary, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten($color-primary, 12%);
+    }
+  }
+
+  @at-root #{&}#{&}--secondary {
+    color: white;
+    background: $color-secondary;
+
+    &:hover {
+      background-color: darken($color-secondary, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-secondary, 8%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-secondary, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten($color-secondary, 35%);
+    }
+  }
+
+  @at-root #{&}#{&}--success {
+    color: white;
+    background: $color-success;
+
+    &:hover {
+      background-color: darken($color-success, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-success, 8%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-success, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten($color-success, 12%);
+    }
+  }
+
+  @at-root #{&}#{&}--danger {
+    color: white;
+    background: $color-danger;
+
+    &:hover {
+      background-color: darken($color-danger, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-danger, 8%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-danger, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten($color-danger, 12%);
+    }
+  }
+
+  @at-root #{&}#{&}--light {
+    color: #333;
+    background: #e8e8e8;
+
+    &:hover {
+      background-color: darken(#e8e8e8, 5%);
+    }
+
+    &:active {
+      background-color: darken(#e8e8e8, 8%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba(#e8e8e8, 0.8);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten(#e8e8e8, 12%);
+    }
+  }
+
+  @at-root #{&}#{&}--transparent {
+    color: #333;
+
+    &:hover {
+      background-color: darken(#e8e8e8, 2%);
+    }
+
+    &:active {
+      background-color: darken(#e8e8e8, 5%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba(#e8e8e8, 0.8);
+    }
+
+    &.disabled,
+    &[disabled] {
+      background-color: lighten(#e8e8e8, 12%);
+    }
+  }
+
+  @at-root #{&}#{&}--outlinePrimary {
+    background: transparent;
+    color: $color-primary;
+    border: 1.25px solid $color-primary;
+
+    &:hover {
+      background: lighten($color-primary, 40%);
+      color: darken($color-primary, 6%);
+      border-color: darken($color-primary, 6%);
+    }
+
+    &:active {
+      background: lighten($color-primary, 35%);
+      color: darken($color-primary, 12%);
+      border-color: darken($color-primary, 12%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-primary, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      color: lighten($color-primary, 20%);
+      border-color: lighten($color-primary, 20%);
+    }
+  }
+
+  @at-root #{&}#{&}--outlineSecondary {
+    background: transparent;
+    color: $color-secondary;
+    border: 1.25px solid $color-secondary;
+
+    &:hover {
+      background: lighten($color-secondary, 75%);
+      color: darken($color-secondary, 6%);
+      border-color: darken($color-secondary, 6%);
+    }
+
+    &:active {
+      background: lighten($color-secondary, 60%);
+      color: darken($color-secondary, 12%);
+      border-color: darken($color-secondary, 12%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 4px 4px rgba($color-secondary, 0.3);
+    }
+
+    &.disabled,
+    &[disabled] {
+      color: lighten($color-secondary, 40%);
+      border-color: lighten($color-secondary, 40%);
+    }
+  }
+
+  &--xs {
+    height: $height-xs;
+
+    border-radius: $radius-xs;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 12px;
+
+    #{$parent}__icon {
+      font-size: 14px;
+    }
+  }
+
+  &--sm {
+    height: $height-sm;
+
+    border-radius: $radius-sm;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 16px;
+
+    #{$parent}__icon {
+      font-size: 16px;
+    }
+  }
+
+  &--lg {
+    height: $height-lg;
+
+    border-radius: $radius-lg;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 24px;
+
+    #{$parent}__icon {
+      font-size: 24px;
+    }
+  }
+}

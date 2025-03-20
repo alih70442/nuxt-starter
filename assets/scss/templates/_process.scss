@@ -1,0 +1,41 @@
+.t-process {
+    $parent: #{&};
+
+    @at-root #{$parent}__arrows {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: '';
+
+            @include media($media-md) {
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+
+                transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+
+                width: 400px;
+                height: 400px;
+
+                z-index: -1;
+
+                background-image: url($path_images + '/pages/home/how_arrow.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            @include media($media-lg) {
+                width: 540px;
+            }
+
+            @include media($media-xl) {
+                width: 650px;
+            }
+        }
+    }
+}

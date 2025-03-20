@@ -1,0 +1,109 @@
+// reset button
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    white-space: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+}
+
+.u-fit {
+    width: 100%;
+    height: 100%;
+}
+
+.u-relative {
+    position: relative;
+}
+
+.u-absolute {
+    position: absolute;
+
+    &.u-pos-tl {
+        top: 0;
+        left: 0;
+    }
+}
+
+.u-flex {
+    display: flex;
+
+    &.u-center-xy {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.c-magnetic-btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.o-circle {
+    display: inline-block;
+    background-color: rgba(black, 0.015);
+    border: 2px solid rgba(black, 0.5);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.2;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity;
+}
+
+.t-btn-label {
+    display: inline-block;
+    user-select: none;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: rgba(black, 0.5);
+    font-size: 13px;
+}
+
+.is-hover {
+    .o-circle {
+        opacity: 0.4;
+    }
+}
+
+
+
+
+/* ============= */
+/* for demo only */
+/* ============= */
+
+a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 8px 16px;
+    transform-origin: bottom right;
+    transform: rotate(-90deg) translateX(100%);
+    font-family: 'Karla', sans-serif;
+    text-decoration: none;
+    color: rgba(black, 0.75);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+    &:hover {
+        opacity: 1;
+    }
+}

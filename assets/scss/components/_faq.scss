@@ -1,0 +1,45 @@
+.c-faq {
+    $parent: #{&};
+
+    &--active {
+        &>#{$parent}__label {
+            &::after {
+                transform: translateY(-50%) rotate(180deg) scaleY(-1);
+            }
+        }
+    }
+
+    @at-root #{$parent}__label {
+
+        &::after {
+            @extend %transition-normal;
+            @extend %fontIcon;
+
+            content: "\e903";
+
+            position: absolute;
+            top: 50%;
+            left: 4px;
+
+            font-size: 20px;
+
+            transform: translateY(-50%) rotate(180deg);
+            // transform-origin: center 25%;
+        }
+    }
+
+    @at-root #{$parent}__content {
+
+        &::before {
+            content: "";
+
+            position: absolute;
+            top: 16px;
+            left: 0;
+
+            width: 100%;
+
+            border-top: 1px dashed rgb(189, 189, 189);
+        }
+    }
+}

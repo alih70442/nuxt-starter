@@ -1,0 +1,41 @@
+.woocommerce-breadcrumb {
+    $parent: #{&};
+
+    display: flex;
+    flex-wrap: wrap;
+
+    user-select: none;
+
+    span {
+
+        &::before {
+            content: "/";
+
+            margin: 0 2px;
+        }
+
+        &:first-of-type {
+            &::before {
+                display: none;
+            }
+        }
+
+        &:last-of-type {
+            &::before {
+                margin-left: 4px;
+            }
+        }
+
+        & > a,
+        & > span {
+            @extend %transition-fast;
+            @extend %t-nowrap;
+
+            font-size: 1rem;
+
+            &:hover {
+                // color: #AFAFAF;
+            }
+        }
+    }
+}

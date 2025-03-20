@@ -1,0 +1,329 @@
+// mobile base media queries
+@mixin media($size) {
+    @if $size==$media-xs {
+        @media (min-width: $media-xs) {
+            @content;
+        }
+    } @else if $size==$media-sm {
+        @media (min-width: $media-sm) {
+            @content;
+        }
+    } @else if $size==$media-md {
+        @media (min-width: $media-md) {
+            @content;
+        }
+    } @else if $size==$media-lg {
+        @media (min-width: $media-lg) {
+            @content;
+        }
+    } @else if $size==$media-xl {
+        @media (min-width: $media-xl) {
+            @content;
+        }
+    } @else if $size==$media-xxl {
+        @media (min-width: $media-xxl) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $size) {
+            @content;
+        }
+    }
+}
+
+// max base media queries
+@mixin mediaMax($size) {
+    @if $size==$media-xs {
+        @media (max-width: 479.88px) {
+            @content;
+        }
+    } @else if $size==$media-sm {
+        @media (max-width: 639.88px) {
+            @content;
+        }
+    } @else if $size==$media-md {
+        @media (max-width: 767.88px) {
+            @content;
+        }
+    } @else if $size==$media-lg {
+        @media (max-width: 1023.88px) {
+            @content;
+        }
+    } @else if $size==$media-xl {
+        @media (max-width: 1279.88px) {
+            @content;
+        }
+    } @else if $size==$media-xxl {
+        @media (max-width: 1399.88px) {
+            @content;
+        }
+    } @else {
+        @media (max-width: $size) {
+            @content;
+        }
+    }
+}
+
+@mixin gg($name) {
+    .#{$name} {
+        @content;
+    }
+
+    %#{$name} {
+        @content;
+    }
+}
+
+@mixin square($width, $centering: false, $redius: 50%) {
+    width: $width;
+    height: $width;
+
+    border-radius: $redius;
+
+    @if $centering {
+        @extend %centering;
+    }
+}
+
+@mixin limit_lines($lines, $has_core: false, $line_height: 2) {
+    @if $has_core==false {
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+    }
+
+    -webkit-line-clamp: $lines;
+
+    height: #{$line_height * $lines}em;
+}
+
+@mixin include_list($component_list, $has-included) {
+    @if $has-included==false {
+        .#{$component_list} {
+            @extend %#{$component_list};
+        }
+    }
+}
+
+@mixin bg-hovering($color) {
+    background-color: $color;
+
+    &:hover {
+        background-color: lighten($color: $color, $amount: 4%);
+    }
+
+    &:active {
+        background-color: darken($color: $color, $amount: 4%);
+    }
+}
+
+@mixin text-hovering($color) {
+    color: $color;
+
+    &:hover {
+        color: lighten($color: $color, $amount: 8%);
+    }
+
+    &:active {
+        color: darken($color: $color, $amount: 8%);
+    }
+}
+
+@mixin btn($bg-color, $color) {
+    background-color: $bg-color;
+    color: $color;
+
+    transition: 0.3s all;
+
+    &:hover {
+        background-color: $bg-color;
+        color: $color;
+    }
+
+    &:active {
+        &::before {
+            background-color: darken($color: $bg-color, $amount: 10%);
+        }
+    }
+}
+
+// btn hover animation
+@mixin btn-hover($color, $radius: 50rem) {
+    position: relative;
+
+    z-index: 1;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: $color;
+        border-radius: $radius;
+        transform: scale(0);
+        transition: 0.3s all;
+        z-index: -1;
+    }
+
+    &:hover {
+        &::before {
+            transform: scale(1);
+        }
+    }
+
+    &:active {
+        &::before {
+            background-color: darken($color: $color, $amount: 5%);
+        }
+    }
+}
+
+@mixin btn-active($color) {
+    position: relative;
+
+    z-index: 1;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: $color;
+        border-radius: 50rem;
+        transform: scale(0);
+        transition: 0.3s all;
+        z-index: -1;
+    }
+
+    &:hover {
+        &::before {
+            transform: scale(1);
+        }
+    }
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+$COLOR_HOVER_PERCENT: 2%;
+$COLOR_FOCUS_PERCENT: 7%;
+$COLOR_ACTIVE_PERCENT: 10%;
+
+@mixin hover_bg($color, $active: false) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:hover {
+            background-color: darken($color, $COLOR_HOVER_PERCENT);
+        }
+        @if $active == true {
+            &:active {
+                background-color: lighten($color, $COLOR_HOVER_PERCENT);
+            }
+        }
+    } @else {
+        &:hover {
+            background-color: lighten($color, $COLOR_HOVER_PERCENT);
+        }
+        @if $active == true {
+            &:active {
+                background-color: darken($color, $COLOR_HOVER_PERCENT);
+            }
+        }
+    }
+}
+
+@mixin hover_text($color, $active: false) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:hover {
+            color: darken($color, $COLOR_HOVER_PERCENT);
+        }
+        @if $active == true {
+            &:active {
+                color: lighten($color, $COLOR_HOVER_PERCENT);
+            }
+        }
+    } @else {
+        &:hover {
+            color: lighten($color, $COLOR_HOVER_PERCENT);
+        }
+        @if $active == true {
+            &:active {
+                color: darken($color, $COLOR_HOVER_PERCENT);
+            }
+        }
+    }
+}
+
+@mixin focus_bg($color) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:focus {
+            background-color: darken($color, $COLOR_FOCUS_PERCENT);
+        }
+    } @else {
+        &:focus {
+            background-color: lighten($color, $COLOR_FOCUS_PERCENT);
+        }
+    }
+}
+
+@mixin focus_text($color) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:focus {
+            color: darken($color, $COLOR_FOCUS_PERCENT);
+        }
+    } @else {
+        &:focus {
+            color: lighten($color, $COLOR_FOCUS_PERCENT);
+        }
+    }
+}
+
+@mixin active_bg($color) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:active {
+            background-color: darken($color, $COLOR_ACTIVE_PERCENT);
+        }
+    } @else {
+        &:active {
+            background-color: lighten($color, $COLOR_ACTIVE_PERCENT);
+        }
+    }
+}
+
+@mixin active_text($color) {
+    $lightness: str-replace(#{lightness($color)}, "%");
+
+    @if number($lightness) >= 50 {
+        &:active {
+            color: darken($color, $COLOR_ACTIVE_PERCENT);
+        }
+    } @else {
+        &:active {
+            color: lighten($color, $COLOR_ACTIVE_PERCENT);
+        }
+    }
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ colors ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
