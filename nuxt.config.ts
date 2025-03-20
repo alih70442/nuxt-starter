@@ -64,17 +64,30 @@ export default defineNuxtConfig({
                 },
                 {name: "viewport", content: "width=device-width, initial-scale=1"},
                 {name: "format-detection", content: "telephone=no"},
-                {name: "msapplication-TileColor", content: "#2d89ef"},
-                {name: "theme-color", content: "#f5f5f8"},
+                {
+                    name: 'apple-mobile-web-app-title',
+                    content: 'Taminify'
+                }
             ],
             link: [
                 {rel: "canonical", href: "https://taminify.com"},
-                {rel: "apple-touch-icon", sizes: "180x180", href: "/favIcon/apple-touch-icon.png"},
-                {rel: "icon", type: "image/png", sizes: "32x32", href: "/favIcon/favicon-32x32.png"},
-                {rel: "icon", type: "image/png", sizes: "16x16", href: "/favIcon/favicon-16x16.png"},
-                {rel: "manifest", href: "/favIcon/site.webmanifest"},
-                {rel: "mask-icon", href: "/favIcon/safari-pinned-tab.svg", color: "#ff5128"},
-                {rel: "shortcut icon", href: "/favIcon/favicon.ico"},
+                {
+                    "type": "image/png",
+                    "href": "/favicon/favicon-96x96.png",
+                    "sizes": "96x96"
+                },
+                {
+                    "type": "image/svg+xml",
+                    "href": "/favicon/favicon.svg"
+                },
+                {
+                    "href": "/favicon/favicon.ico",
+                    "rel": "shortcut icon"
+                },
+                {
+                    "href": '/favicon/site.webmanifest',
+                    "rel": 'manifest',
+                },
                 // {rel: "preload", href: "/_nuxt/assets/fonts/Estedad-FD.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous"},
             ],
             __dangerouslyDisableSanitizers: ["script", "iframe", "noscript"],
